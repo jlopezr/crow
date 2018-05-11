@@ -3,6 +3,7 @@ from conans import ConanFile, CMake
 
 class CrowConan(ConanFile):
     name = "crow"
+    description = "Crow is very fast and easy to use C++ micro web framework (inspired by Python Flask)"
     version = "0.1"
     url = "https://github.com/ipkn/crow"
     license = "MIT; see https://github.com/ipkn/crow/blob/master/LICENSE"
