@@ -9,8 +9,8 @@ class CrowConan(ConanFile):
     generators = "cmake"
     settings = "os", "compiler", "build_type", "arch"
 
-    requires = (("Boost/1.60.0@lasote/stable"),
-                ("OpenSSL/1.0.2i@lasote/stable"))
+    requires = (("boost/1.67.0@conan/stable"),
+                ("OpenSSL/1.0.2@conan/stable"))
 
     # No exports necessary
 
@@ -19,8 +19,8 @@ class CrowConan(ConanFile):
         self.run("git clone https://github.com/ipkn/crow.git")
 
     def build(self):
-        cmake = CMake(self.settings)
-        self.run('cmake %s/crow %s' % (self.conanfile_directory, cmake.command_line))
+        cmake = CMake(self)
+        self.run('cmake %s/crow %s' % (self.source_folder, cmake.command_line))
         self.run("cmake --build . %s" % cmake.build_config)
         self.run("make")
 
